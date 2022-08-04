@@ -1,7 +1,10 @@
 from django.shortcuts import render, redirect
+from django.http import HttpResponseRedirect,JsonResponse, HttpResponse
 from .forms import LoginForm, SignUpForm
+from django.urls import reverse
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required, permission_required
+from django.contrib.auth.models import User
 
 @login_required
 def principal(request):
@@ -24,9 +27,53 @@ def login_view(request):
                 login(request, user)
                 return redirect("principal")
             else:
-                msg = 'Invalid credentials'
+                msg = 'credentials Invalids '
         else:
-            msg = 'Error validating the form'
+            msg = 'Error en validar el formulario'
 
     return render(request, "login.html", {"form": form, "msg": msg})
 
+@login_required
+def cerrar_secion(request):
+    logout(request)
+    return HttpResponseRedirect(reverse(login_view))
+
+
+
+def register_user(request):
+    msg = None
+    success = False
+
+    if request.method == "POST":
+        
+        form = SignUpForm(request.POST)
+        if form.is_valid():
+            form.save()
+            username = form.cleaned_data.get("username")
+            raw_password = form.cleaned_data.get("password1")
+            user = authenticate(username=username, password=raw_password)
+
+            msg = 'Usuario creado - porfavor  <a href="/">Inicio de session</a>.'
+            success = True
+
+            # return redirect("/login/")
+
+        else:
+            msg = 'Datos no validos'
+    else:
+        form = SignUpForm()
+    
+    return render(request, "register_user.html", {"form": form, "msg": msg, "success": success})
+
+@login_required
+def user_(request):
+    user = User.objects.all()
+    ctx = {'users':user}
+    
+    return render(request,'user_.html',ctx)
+
+@login_required
+def colaboradores(request):
+   
+    
+    return render(request,'colaboradores.html')
