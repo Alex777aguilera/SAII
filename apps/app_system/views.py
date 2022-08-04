@@ -5,6 +5,7 @@ from django.urls import reverse
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required, permission_required
 from django.contrib.auth.models import User
+from .models import * #Modelos de nuestra aplicacion
 
 @login_required
 def principal(request):
@@ -77,3 +78,27 @@ def colaboradores(request):
    
     
     return render(request,'colaboradores.html')
+
+
+@login_required
+def develops(request):
+   desarrolladores = Desarrolladores.objects.all()
+   cant_int = desarrolladores.__len__()
+   
+   ctx = {'devs':desarrolladores, 'cantidadD':cant_int}
+   
+   return render(request,'develops.html',ctx)
+
+@login_required
+def calculos(request):
+    Pdolar = 24.55
+    calculo  = 0.0
+   
+    if request.method=='POST':
+        Cdolar = float(request.POST.get('dinero')) 
+    
+        calculo  = Cdolar * Pdolar
+        print(calculo)
+   
+    ctx = {'calculo':calculo}
+    return render(request,'calculos.html',ctx)
