@@ -1,0 +1,103 @@
+{% extends "principal_base.html" %}
+
+  {% block title %}
+    Colaboradores
+  {% endblock title %}
+
+{% load static %}
+{% block content %}
+<div class="container-fluid">
+
+  <!-- Page Heading -->
+  <div class="d-sm-flex align-items-center justify-content-between mb-4">
+      <h1 class="h3 mb-0 text-gray-800">Colaboraciones</h1>
+  </div>
+
+ 
+
+  <div class="row">
+
+      <div class="col-lg-6">
+
+          <!-- Default Card Example -->
+          <div class="card mb-4">
+              <div class="card-header">
+                  Que es Boostrap?
+              </div>
+              <div class="card-body">
+                  Bootstrap es un framework CSS desarrollado por Twitter en 2010, para estandarizar las herramientas de la compañía.
+                  Inicialmente, se llamó Twitter Blueprint y, un poco más tarde, en 2011, se transformó en código abierto y su nombre 
+                  cambió para Bootstrap. Desde entonces fue actualizado varias veces y ya se encuentra en la versión 4.4.
+                  El framework combina CSS y JavaScript para estilizar los elementos de una página HTML. Permite mucho más que, simplemente, 
+                  cambiar el color de los botones y los enlaces.
+
+                  Esta es una herramienta que proporciona interactividad en la página, por lo que ofrece una serie de componentes que 
+                  facilitan la comunicación con el usuario, como menús de navegación, controles de página, barras de progreso y más.
+              </div>
+          </div>
+
+          <!-- Basic Card Example -->
+          <div class="card shadow mb-4">
+              <div class="card-header py-3">
+                  Que es python?
+              </div>
+              <div class="card-body">
+                  Python es un lenguaje de programación de alto nivel que se utiliza para desarrollar aplicaciones de todo tipo. 
+                  A diferencia de otros lenguajes como Java o .NET, se trata de un lenguaje interpretado, es decir, que no es 
+                  necesario compilarlo para ejecutar las aplicaciones escritas en Python, sino que se ejecutan directamente por 
+                  el ordenador utilizando un programa denominado interpretador, por lo que no es necesario “traducirlo” a lenguaje 
+                  máquina. 
+              </div>
+          </div>
+
+      </div>
+
+      <div class="col-lg-6">
+
+          <!-- Dropdown Card Example -->
+          <div class="card shadow mb-4">
+              <!-- Card Header - Dropdown -->
+              <div
+                  class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                  Que es Django?
+              </div>
+              <!-- Card Body -->
+              <div class="card-body">
+                  Django (gdh/ˈdʒæŋɡoʊ/jang-goh) es un framework de aplicaciones web gratuito y de código abierto (open source) escrito en Python. 
+                  Un framework web es un conjunto de componentes que te ayudan a desarrollar sitios web más fácil y rápidamente.
+                  Cuando construyes un sitio web, siempre necesitas un conjunto de componentes similares: una manera de manejar la autenticación 
+                  de usuarios (registrarse, iniciar sesión, cerrar sesión), un panel de administración para tu sitio web, formularios, una forma de 
+                  subir archivos, etc.
+                  Por suerte para nosotros, hace tiempo que otros desarrolladores se dieron cuenta de que siempre se enfrentaban a los mismos problemas 
+                  cuando construían sitios web, y por eso se unieron y crearon frameworks (Django es uno de ellos) con componentes listos para usarse.
+              </div>
+          </div>
+
+          <!-- Collapsable Card Example -->
+          <div class="card shadow mb-4">
+              <!-- Card Header - Accordion -->
+              <div class="d-block card-header py-3" >
+                 UTH
+              </div>
+              <!-- Card Content - Collapse -->
+              <div class="collapse show" id="collapseCardExample">
+                  <div class="card-body">
+                      La UTH es una institución de mucho prestigio y de mayor crecimiento de Honduras. Estamos interesados en que los estudiantes y 
+                      docentes tengan la oportunidad de enfrentar los desafíos en un mundo globalizado, con una economía de libre mercado y altamente 
+                      competitiva.
+                      En Honduras existen diez campus universitarios de la UTH, ubicados en San Pedro Sula, Choloma, Puerto Cortés, El Progreso, La Ceiba, 
+                      Santa Bárbara, Siguatepeque, Tegucigalpa, Choluteca y Roatán. Cuenta con un centro asociado para la educación a distancia (On line).
+                  </div>
+              </div>
+          </div>
+
+      </div>
+
+  </div>
+
+</div>
+{% endblock content %}
+
+{% block js %}
+
+{% endblock js %}

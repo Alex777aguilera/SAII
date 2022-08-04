@@ -1,0 +1,62 @@
+{% extends "principal_base.html" %}
+
+  {% block title %}
+    Calculos
+  {% endblock title %}
+
+{% load static %}
+
+{% block content %}
+<div class="container">
+
+    <div class="card o-hidden border-0 shadow-lg my-5">
+        <div class="card-body p-0">
+            <!-- Nested Row within Card Body -->
+            <div class="row">
+               
+                <div class="col-lg-10">
+                    <div class="p-5">
+                        
+                        <form class="user" method="post" >
+                            {% csrf_token %}
+                            <div class="text-center">
+                           
+                                <p>
+                                    <h1 class="h4 text-gray-900 mb-4">Ingresa la cantida de dolares a lempiras a calcular!</h1>
+                                    {% if calculo %}
+                                     <h1 class="h4 text-gray-900 mb-4">Cantidad en dolares :{{ calculo}}</h1>
+                                    
+                                        
+                                    {% endif %}                                     
+                                </p> 
+                            </div>
+                            
+                           
+                            <div class="form-group row">
+                                <div class="col-sm-6 mb-3 mb-sm-0">
+                                    <input type="text" class="form-control form-control-user"
+                                        id="exampleInputPassword" placeholder="..." name="dinero" required>
+                                        
+                                </div>
+                             
+                            </div>
+                            <button type="submit" class="btn btn-primary btn-user btn-block">Calcular</button>
+                           
+                            <hr>
+                           
+                        </form>
+                        <hr>
+                       
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+{% endblock content %}
+
+{% block js %}
+
+{% endblock js %}

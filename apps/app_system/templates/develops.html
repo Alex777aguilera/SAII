@@ -1,0 +1,92 @@
+{% extends "principal_base.html" %}
+
+  {% block title %}
+    Desarrolladores
+  {% endblock title %}
+
+{% load static %}
+
+
+{% block content %}
+<div class="card border-left-info shadow h-20 py-2 col-sm-10">
+    <div class="card-body">
+        <div class="row no-gutters align-items-center">
+            <div class="col mr-2">
+                <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Desarrolladores
+                </div>
+                <div class="row no-gutters align-items-center">
+                    <div class="col-auto">
+                        <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">{{cantidadD}}</div>
+                    </div>
+                    <div class="col">
+                        <div class="progress progress-sm mr-2">
+                            <div class="progress-bar bg-info" role="progressbar"
+                                style="width: 50%" aria-valuenow="50" aria-valuemin="0"
+                                aria-valuemax="100"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-auto">
+                <i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
+            </div>
+        </div>
+    </div>
+</div>
+<br><br>
+<div class="row">
+
+    <!-- Content Column -->
+    <div class="col-lg-6 mb-4">
+
+        <!-- Project Card Example -->
+        <div class="card shadow mb-4">
+            <div class="card-header py-3">
+                <h6 class="m-0 font-weight-bold text-primary">Integrantes </h6>
+            </div>
+            <div class="card-body">
+               
+               {% for team in devs %}
+                
+               
+                <h3 class="small font-weight-bold">{{team.primer_nombre}} {{team.primer_apellido}}<span class="float-right"></span></h3>
+                <h4 class="small font-weight-bold">Correo : {{team.correo}} <span class="float-right"></span></h4>
+                <h4 class="small font-weight-bold">Campus : {{team.campus}} <span class="float-right"></span></h4>
+                <div class="progress mb-4">
+                    <div class="progress-bar bg-danger" role="progressbar" style="width: 100%"
+                        aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"></div>
+                </div>
+                
+                {% endfor %}
+                
+            </div>
+        </div>
+
+        <!-- Color System -->
+        
+
+    </div>
+
+    <div class="col-lg-6 mb-4">
+
+       
+
+        <!-- Approach -->
+        <div class="card shadow mb-4">
+            <div class="card-header py-3">
+                <h6 class="m-0 font-weight-bold text-primary">Descripcion</h6>
+            </div>
+            <div class="card-body">
+                <p>Sistema desarrollado por Integrantes de la clase de Programacion de Sistemas Abiertos II.</p>
+                <p class="mb-0">Catedratico asignado : Ingeniero Wilson Villanueva.</p>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+{% endblock content %}
+
+{% block js %}
+
+{% endblock js %}
